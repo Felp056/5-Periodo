@@ -27,7 +27,11 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
     @Override
     public void update(Usuario usuario) {
-
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();
+        em.merge(usuario);
+        trans.commit();
+        System.out.println("Usuario "+usuario.getNome()+" atualizado com sucesso!");
     }
 
     @Override
@@ -37,7 +41,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
     @Override
     public Usuario findById(Long id) {
-        return null;
+        return em.find(Usuario.class, id);
     }
 
     @Override
