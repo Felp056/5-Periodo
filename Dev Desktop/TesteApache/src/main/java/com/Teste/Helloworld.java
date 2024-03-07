@@ -75,6 +75,8 @@ public class Helloworld extends javax.swing.JFrame {
                 new Helloworld().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
