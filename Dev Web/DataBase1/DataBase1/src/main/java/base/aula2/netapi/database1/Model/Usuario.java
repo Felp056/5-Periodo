@@ -18,5 +18,13 @@ public class Usuario {
     @Column(nullable = false, length = 20)
     private String senha;
 
-
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
 }
