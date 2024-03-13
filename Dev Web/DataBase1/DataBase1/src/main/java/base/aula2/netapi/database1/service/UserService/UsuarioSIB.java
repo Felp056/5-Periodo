@@ -1,14 +1,12 @@
-package base.aula2.netapi.database1.service;
+package base.aula2.netapi.database1.service.UserService;
 
 import base.aula2.netapi.database1.Model.Usuario;
 import base.aula2.netapi.database1.Util.EntityManagerUtil;
 import base.aula2.netapi.database1.dao.UsuarioDao;
 import base.aula2.netapi.database1.dao.UsuarioDaoImpl;
-import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
-import jakarta.persistence.EntityManager;
 
-@WebService(endpointInterface = "base.aula2.netapi.database1.service.UsuarioSei")
+@WebService(endpointInterface = "base.aula2.netapi.database1.service.UserService.UsuarioSei")
 public class UsuarioSIB implements UsuarioSei{
     @Override
     public String boasVindas(String Nome) {

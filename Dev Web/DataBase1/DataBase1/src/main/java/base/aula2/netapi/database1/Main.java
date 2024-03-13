@@ -5,14 +5,11 @@ import base.aula2.netapi.database1.Model.Usuario;
 import base.aula2.netapi.database1.Util.EntityManagerUtil;
 import base.aula2.netapi.database1.dao.UsuarioDao;
 import base.aula2.netapi.database1.dao.UsuarioDaoImpl;
-import base.aula2.netapi.database1.service.UsuarioSIB;
-import jakarta.xml.ws.Endpoint;
-import jakarta.xml.ws.spi.http.HttpContext;
+import base.aula2.netapi.database1.service.CepService.HttpCaller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.http.HttpClient;
 import java.util.List;
 
 public class Main {
@@ -23,7 +20,7 @@ public class Main {
         //GetByIdUser(1);
         //GetAllFromTable();
        try {
-            getViaCep("85807700");
+            HttpCaller.getViaCep("85807700");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -105,28 +102,6 @@ public class Main {
         {
             System.out.println(ex.getMessage() + " \n"+ ex.getStackTrace());
         }
-    }
-
-    private static Endereco getViaCep(String cep) throws Exception{
-        URL url = new URL("http://viacep.com.br/ws/"
-                +cep.replace("-", "")
-                .replace(".", "")
-                +"/xml/");
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(url.openStream()));
-
-        String inputLine;
-        String result = "";
-        while ((inputLine = in.readLine()) != null)
-            result += inputLine;
-
-        in.close();
-        //  return result;
-        Endereco objCep = new Endereco();
-        objCep = Endereco.unmarshalFromString(result);
-
-        return objCep;
     }
 }
 

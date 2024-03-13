@@ -1,4 +1,4 @@
-package base.aula2.netapi.database1.service;
+package base.aula2.netapi.database1.service.UserService;
 
 import base.aula2.netapi.database1.Model.Usuario;
 import jakarta.jws.WebMethod;

@@ -9,10 +9,10 @@
         <property name="hibernate.show_sql" value="true"/>
         <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:porta/nome"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/AulaDeDevWeb"/>
       <property name="jakarta.persistence.jdbc.user" value="postgres"/>
       <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="jakarta.persistence.jdbc.password" value="senha"/>
+      <property name="jakarta.persistence.jdbc.password" value="#Deadp00l"/>
     </properties>
   </persistence-unit>
 </persistence>
