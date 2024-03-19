@@ -36,15 +36,6 @@ public class Endereco {
     private String ddd;
     private String siafi;
 
-    public static Endereco unmarshalFromString(String stringXml)
-            throws Exception  {
-        JAXBContext context = null;
-        context = JAXBContext.newInstance(Endereco.class);
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-        StringReader reader = new StringReader(stringXml);
-        return (Endereco) unmarshaller.unmarshal(reader);
-    }
-
     @Override
     public String toString() {
         return "Endereco{" +

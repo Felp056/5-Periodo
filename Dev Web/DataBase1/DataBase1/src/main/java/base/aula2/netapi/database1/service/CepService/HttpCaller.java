@@ -2,8 +2,11 @@ package base.aula2.netapi.database1.service.CepService;
 
 import base.aula2.netapi.database1.Model.Endereco;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.URL;
 
 public class HttpCaller {
@@ -23,9 +26,18 @@ public class HttpCaller {
 
         in.close();
         //  return result;
-        Endereco objCep = new Endereco();
-        objCep = Endereco.unmarshalFromString(result);
+        result = result.replace("-", "");
+        Endereco objCep = unmarshalFromString(result);
 
         return objCep;
     }
+
+    public static Endereco unmarshalFromString(String stringxml)
+        throws Exception{
+        JAXBContext content = JAXBContext.newInstance(Endereco.class);
+        Unmarshaller unmarshaller = content.createUnmarshaller();
+        StringReader reader = new StringReader(stringxml);
+        return (Endereco) unmarshaller.unmarshal(reader);
+    }
+
 }

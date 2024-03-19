@@ -6,6 +6,7 @@ package com.financ;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -26,6 +27,6 @@ public class ProjetoFinanceiro {
         valor = valor.pow(2);
         System.out.println(valor.setScale(10, RoundingMode.HALF_UP));
         System.out.println((valor.compareTo(new BigDecimal("25.001"))> 0 ? "Maior q 25.001 " : "Menor q 25.001"));*/
-        new com.financ.Telas.IMC().setVisible(true);
+        new com.financ.Telas.GridLayout().setVisible(true);
     }
 }

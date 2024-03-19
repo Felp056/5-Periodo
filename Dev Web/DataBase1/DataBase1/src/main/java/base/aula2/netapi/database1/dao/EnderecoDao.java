@@ -10,5 +10,6 @@ public interface EnderecoDao {
     int delete(Endereco edereco);
 
     Endereco findById(Long id);
+    Endereco findByCep(String cep);
     List<Endereco> findAll();
 }

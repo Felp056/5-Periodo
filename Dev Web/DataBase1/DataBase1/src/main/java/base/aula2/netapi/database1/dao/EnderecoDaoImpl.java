@@ -63,7 +63,8 @@ public class EnderecoDaoImpl implements EnderecoDao{
         return em.find(Endereco.class, id);
     }
 
-    public Endereco findByCep(String cep){return em.find(Endereco.class, cep.replace("-", "").replace(".", ""));}
+    @Override
+    public Endereco findByCep(String cep){return em.createQuery("select u From Endereco u WHERE u.cep like \'"+cep+"\'", Endereco.class).getSingleResult();}
 
     @Override
     public List<Endereco> findAll() {
