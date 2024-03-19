@@ -18,16 +18,24 @@ public class EnderecoDaoImpl implements EnderecoDao{
 
     @Override
     public int save(Endereco endereco) {
-        try {
-            EntityTransaction trans = em.getTransaction();
-            trans.begin();
-            em.persist(endereco);
-            trans.commit();
-            return 1;
-        }catch (Exception ex){
-            System.out.println(ex);
+            try {
+                Endereco teste = findByCep(endereco.getCep());
+                if (teste != null) {
+                    throw new Exception("Registro já existente");
+                }
+            }catch (Exception ex){
+                try {
+                    EntityTransaction trans = em.getTransaction();
+                    trans.begin();
+                    em.persist(endereco);
+                    trans.commit();
+                    return 1;
+                }catch (Exception Nex){
+                    System.out.println(Nex);
+                    return 0;
+                }
+            }
             return 0;
-        }
     }
 
     @Override
